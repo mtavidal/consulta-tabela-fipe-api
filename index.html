@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="index.js"></script>
+    <title>CONSULTA TABELA FIPE</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section>
+        <div>
+            <form id="formCampo">
+                <div class="campo">
+                    <label for="tipo" class="form-label">Tipo do veículo</label>
+                    <select id="tipo">
+                        <option value="" disabled selected>selecione</option>
+                        <option value="cars">cars</option>
+                        <option value="motorcycles">motorcycles</option>
+                        <option value="trucks">trucks</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca" aria-describedby="marca">
+                </div>
+                <div class="campo">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo" aria-describedby="modelo">
+                </div>
+                <div class="campo">
+                    <label for="data" class="form-label">Ano</label>
+                    <input type="text" class="form-control" id="data" aria-describedby="data">
+                </div>
+                <button type="submit" id="btnEnviar">enviar</button>
+            </form>
+        </div>
+
+    </section>
+    <footer>
+        
+    </footer>
+</body>
+</html>
