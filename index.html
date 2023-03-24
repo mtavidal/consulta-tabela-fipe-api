@@ -18,22 +18,28 @@
                     <label for="tipo" class="form-label">Tipo do veículo</label>
                     <select id="tipo">
                         <option value="" disabled selected>selecione</option>
-                        <option value="cars">cars</option>
-                        <option value="motorcycles">motorcycles</option>
-                        <option value="trucks">trucks</option>
+                        <option value="carros">carros</option>
+                        <option value="motos">motos</option>
+                        <option value="caminhoes">caminhoes</option>
                     </select>
                 </div>
                 <div class="campo">
                     <label for="marca" class="form-label">Marca</label>
-                    <input type="text" class="form-control" id="marca" aria-describedby="marca">
+                    <select id="marca" style="display: none">
+                        
+                    </select>
                 </div>
                 <div class="campo">
                     <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" aria-describedby="modelo">
+                    <select id="modelo" style="display: none">
+                        
+                    </select>
                 </div>
                 <div class="campo">
-                    <label for="data" class="form-label">Ano</label>
-                    <input type="text" class="form-control" id="data" aria-describedby="data">
+                    <label for="ano" class="form-label">Ano</label>
+                    <select id="ano" style="display: none">
+                        
+                    </select>
                 </div>
                 <button type="submit" id="btnEnviar">enviar</button>
             </form>
