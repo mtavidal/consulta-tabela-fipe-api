@@ -4,45 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Michroma&display=swap" rel="stylesheet">
     <title>CONSULTA TABELA FIPE</title>
 </head>
 <body>
-    <header>
 
-    </header>
     <section>
-        <div>
+        <div id="container">
+            <div id="cabecalho">
+                <img src="imagem/icone-fipe.png" id="logofipe" alt="icone">
+                <div>
+                    <h5>Consulta</h5>
+                    <h1>Tabela Fipe</h1>
+                </div>
+            </div>
             <form id="formCampo">
                 <div class="campo">
-                    <label for="tipo" class="form-label">Tipo do veículo</label>
+                    <label for="tipo" class="form-label">Tipo do veículo: </label>
                     <select id="tipo">
                         <option value="" disabled selected>selecione</option>
                         <option value="carros">carros</option>
                         <option value="motos">motos</option>
-                        <option value="caminhoes">caminhoes</option>
+                        <option value="caminhoes">caminhões</option>
                     </select>
                 </div>
                 <div class="campo">
-                    <label for="marca" class="form-label">Marca</label>
-                    <select id="marca" style="display: none">
+                    <label for="marca" class="form-label">Marca: </label>
+                    <select id="marca" disabled>
                         
                     </select>
                 </div>
                 <div class="campo">
-                    <label for="modelo" class="form-label">Modelo</label>
-                    <select id="modelo" style="display: none">
+                    <label for="modelo" class="form-label">Modelo: </label>
+                    <select id="modelo" disabled>
                         
                     </select>
                 </div>
                 <div class="campo">
-                    <label for="ano" class="form-label">Ano</label>
-                    <select id="ano" style="display: none">
+                    <label for="ano" class="form-label">Ano: </label>
+                    <select id="ano" disabled>
                         
                     </select>
                 </div>
-                <button type="submit" id="btnEnviar">enviar</button>
+                <button type="submit" id="btnEnviar">Pesquisar</button>
             </form>
+            <div id="dadosCarro">
+        
+            </div>
+
         </div>
 
     </section>
