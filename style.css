@@ -78,7 +78,7 @@ button {
 
 #container {
     width: 100vw;
-    height: 96vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,4 +159,29 @@ button {
 #btnOutraConsulta:hover{
     border: 1px solid #636161;
     background-color: #aaaaaa;
+}
+
+#dev {
+    background-color:#dddada;
+    color: #636161;
+    text-align: center;
+    font-size: 10px;
+    padding-bottom: 10px;
+    font-family: 'Michroma', sans-serif;
+    border: none;
+}
+
+#dev a {
+    color: #585757;
+}
+
+@media only screen and (max-height:428px) {
+    #container {
+        width: 100vw;
+        height: 150vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
