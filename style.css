@@ -79,12 +79,13 @@ button {
 }
 
 #card {
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 3px 3px 5px #aaaaaa;
     border: 1px solid #BFBFBF;
     padding: 5%;
     font-size: 20px;
     margin-top: 10px;
     width: 240px;
+    margin-bottom: 20px;
 }
 
 #card h1 {
@@ -99,9 +100,20 @@ button {
     font-family: 'Bona Nova', serif;;
 }
 
+#avisoAno{
+    color: red;
+    align-self: end;
+    padding-right: 20px;
+}
+
 #btnEnviar{
     border-radius: 5px;
     padding: 8px;
     width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 3px 3px 5px #aaaaaa;
+    border: 1px solid #BFBFBF;
+
 
 }

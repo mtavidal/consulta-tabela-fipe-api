@@ -57,19 +57,26 @@ form.addEventListener('submit', async event => {
     let marca = buscarModeloPorMarca.value;
     let modelo = buscarAnoPorModelo.value;
     let ano = buscarCarroPorAno.value;
-    let dadosConsulta = await consultarCarro(tipo, marca, modelo, ano);
-    console.log(dadosConsulta);
-    let divDadosCarro = document.getElementById("dadosCarro");
-    divDadosCarro.innerHTML = `
-        <div id = "card">
-            <h1>Marca: ${dadosConsulta.Marca}</h1>
-            <h1>Modelo: ${dadosConsulta.Modelo}</h1>
-            <h1>Ano: ${ano}</h1>
-            <h1>Valor: ${dadosConsulta.Valor}</h1>
-            <h4>Mês de referência: ${dadosConsulta.MesReferencia}</h4>
-        </div>
-    `
-    limparCampos();
+    let avisoAno = document.getElementById("avisoAno");
+    avisoAno.textContent = " ";
+    if (ano === ""){
+        avisoAno.textContent = "Digite o ano do veículo";
+    } else {
+        let dadosConsulta = await consultarCarro(tipo, marca, modelo, ano);
+        console.log(dadosConsulta);
+        let divDadosCarro = document.getElementById("dadosCarro");
+        avisoAno.textContent = " ";
+        divDadosCarro.innerHTML = `
+            <div id = "card">
+                <h1>Marca: ${dadosConsulta.Marca}</h1>
+                <h1>Modelo: ${dadosConsulta.Modelo}</h1>
+                <h1>Ano: ${ano}</h1>
+                <h1>Valor: ${dadosConsulta.Valor}</h1>
+                <h4>Mês de referência: ${dadosConsulta.MesReferencia}</h4>
+            </div>
+        `
+        limparCampos();
+    }
 })
 
 function limparCampos(){
