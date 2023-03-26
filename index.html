@@ -9,53 +9,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Michroma&display=swap" rel="stylesheet">
-    <title>CONSULTA TABELA FIPE</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.6/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.6/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <title>.: CONSULTA TABELA FIPE :.</title>
 </head>
 <body>
 
     <section>
         <div id="container">
             <div id="cabecalho">
-                <img src="imagem/icone-fipe.png" id="logofipe" alt="icone">
                 <div>
                     <h5>Consulta</h5>
-                    <h1>Tabela Fipe</h1>
+                    <h1>Tabela</h1>
+                </div>
+                <img src="imagem/icone-fipe.png" id="logofipe" alt="icone">
+            </div>
+            <div id="consulta">
+                <form id="formCampo">
+                    <div class="campo">
+                        <label for="tipo" class="form-label">Tipo do veículo: </label>
+                        <select id="tipo" class="selectpicker" data-live-search="true">
+                            <option value="" disabled selected>selecione</option>
+                            <option value="carros">carros</option>
+                            <option value="motos">motos</option>
+                            <option value="caminhoes">caminhões</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="marca" class="form-label">Marca: </label>
+                        <select id="marca" disabled class="selectpicker" data-live-search="true" title="">
+                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="modelo" class="form-label">Modelo: </label>
+                        <select id="modelo" disabled class="selectpicker" data-live-search="true" title="">
+                            
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="ano" class="form-label">Ano: </label>
+                        <select id="ano" disabled class="selectpicker" data-live-search="true" title="">
+                            
+                        </select>
+                    </div>
+                    <button type="submit" id="btnEnviar">Pesquisar</button>
+                </form>
+                <div id="dadosCarro">
+            
                 </div>
             </div>
-            <form id="formCampo">
-                <div class="campo">
-                    <label for="tipo" class="form-label">Tipo do veículo: </label>
-                    <select id="tipo">
-                        <option value="" disabled selected>selecione</option>
-                        <option value="carros">carros</option>
-                        <option value="motos">motos</option>
-                        <option value="caminhoes">caminhões</option>
-                    </select>
-                </div>
-                <div class="campo">
-                    <label for="marca" class="form-label">Marca: </label>
-                    <select id="marca" disabled>
-                        
-                    </select>
-                </div>
-                <div class="campo">
-                    <label for="modelo" class="form-label">Modelo: </label>
-                    <select id="modelo" disabled>
-                        
-                    </select>
-                </div>
-                <div class="campo">
-                    <label for="ano" class="form-label">Ano: </label>
-                    <select id="ano" disabled>
-                        
-                    </select>
-                </div>
-                <button type="submit" id="btnEnviar">Pesquisar</button>
-            </form>
-            <div id="dadosCarro">
-        
-            </div>
-
         </div>
 
     </section>

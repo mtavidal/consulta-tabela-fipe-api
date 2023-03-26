@@ -14,6 +14,7 @@ buscarMarcaPorTipo.onchange = async ()  => {
             <option value="${marcas[index].codigo}">${marcas[index].nome}</option>
         `
     }
+    $('#marca').selectpicker('refresh');
 }
 
 const buscarModeloPorMarca= document.getElementById("marca");
@@ -29,6 +30,7 @@ buscarModeloPorMarca.onchange = async ()  => {
             <option value="${modelos.modelos[index].codigo}">${modelos.modelos[index].nome}</option>
         `
     }
+    $('#modelo').selectpicker('refresh');
 }
 
 const buscarAnoPorModelo= document.getElementById("modelo");
@@ -45,6 +47,7 @@ buscarAnoPorModelo.onchange = async ()  => {
             <option value="${anos[index].codigo}">${anos[index].nome}</option>
         `
     }
+    $('#ano').selectpicker('refresh');
 }
 
 const buscarCarroPorAno = document.getElementById("ano");
@@ -66,5 +69,26 @@ form.addEventListener('submit', async event => {
             <h4>Mês de referência: ${dadosConsulta.MesReferencia}</h4>
         </div>
     `
+    limparCampos();
 })
+
+function limparCampos(){
+    buscarMarcaPorTipo.value = "";
+    buscarModeloPorMarca.value = "";
+    buscarAnoPorModelo.value = "";
+    buscarCarroPorAno.value = "";
+    let selectMarca = document.getElementById("marca");
+    selectMarca.disabled = true;
+    let selectModelo = document.getElementById("modelo");
+    selectModelo.disabled = true;
+    let selectAno = document.getElementById("ano");
+    selectAno.disabled = true;
+    
+    $('#marca option').remove();
+    $('#modelo option').remove();
+    $('#ano option').remove();
+    $('select').selectpicker('refresh');
+}
+
+
 
