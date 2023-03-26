@@ -2,39 +2,50 @@
     margin: 0px;
 }
 
+section{
+    background-color: #dddada;
+}
+
 #cabecalho{
     display: flex;
-    justify-content: center;
+    width: 320px;
+    justify-content: space-around;;
     align-items: center;
     font-family: 'Michroma', sans-serif;
     text-align: center;
-    width: 70%;
+    box-shadow: 3px 3px 5px #aaaaaa;
     border-bottom: 1px solid #aaaaaa;
-    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
 }
 #cabecalho h1{
     font-size: 35px;
 }
 #cabecalho h5{
     font-size: 15px;
-    
+    margin: 0px;
 }
 
 #logofipe {
-    width: 100px;
+    width: 120px;
     padding: 3%;
     padding-left: 5%;
 }
 
 #formCampo {
     padding: 1%;
+    padding-top: 20px;
+    margin-top: 10px;
     width: 320px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: end;
-    font-family: 'Bona Nova', serif;;
+    font-family: 'Bona Nova', serif;
+    background-color: white;
+    box-shadow: 3px 3px 5px #aaaaaa;
+    border: 1px solid #BFBFBF;
 }
 
 
@@ -43,11 +54,13 @@
     width: 100%;
     display: flex;
     align-items: baseline;
+    justify-content: space-around;
 }
 
 label {
     padding-right: 4px;
-    width: 50%;
+    width: 20%;
+    line-height: 15px;
 }
 
 select {
@@ -84,14 +97,16 @@ button {
     padding: 5%;
     font-size: 20px;
     margin-top: 10px;
-    width: 240px;
-    margin-bottom: 20px;
+    width: 320px;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
 }
 
 #card h1 {
     font-size: 20px;
     padding: 2px;
-    font-family: 'Bona Nova', serif;;
+    font-family: 'Bona Nova', serif;
 }
 
 #card h4 {
@@ -100,10 +115,17 @@ button {
     font-family: 'Bona Nova', serif;;
 }
 
-#avisoAno{
+#avisoAno, #avisoModelo, #avisoMarca, #avisoTipo {
     color: red;
     align-self: end;
     padding-right: 20px;
+    font-size: 12px;
+}
+
+#dadosCarro{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #btnEnviar{
@@ -114,6 +136,27 @@ button {
     margin-bottom: 20px;
     box-shadow: 3px 3px 5px #aaaaaa;
     border: 1px solid #BFBFBF;
+    font-family: 'Michroma', sans-serif;
+    font-size: 13px;
+}
 
+#btnEnviar:hover{
+    border: 1px solid #636161;
+    background-color: #aaaaaa;
+}
 
+#btnOutraConsulta{
+    border-radius: 5px;
+    padding: 8px;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    box-shadow: 3px 3px 5px #aaaaaa;
+    border: 1px solid #BFBFBF;
+    font-family: 'Michroma', sans-serif;
+}
+#btnOutraConsulta:hover{
+    border: 1px solid #636161;
+    background-color: #aaaaaa;
 }

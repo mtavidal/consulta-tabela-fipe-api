@@ -1,13 +1,15 @@
-import {consultarCarro, listarMarcas, listarModelos, listarAnos} from "./crud.js";
+import { consultarCarro, listarMarcas, listarModelos, listarAnos } from "./crud.js";
 
 let form = document.getElementById('formCampo');
 
-const buscarMarcaPorTipo= document.getElementById("tipo");
-buscarMarcaPorTipo.onchange = async ()  => {
+const buscarMarcaPorTipo = document.getElementById("tipo");
+buscarMarcaPorTipo.onchange = async () => {
     let tipo = buscarMarcaPorTipo.value;
     let marcas = await listarMarcas(tipo);
     let selectMarca = document.getElementById("marca");
     selectMarca.disabled = false;
+    let avisoTipo = document.getElementById("avisoTipo");
+    avisoTipo.textContent = " ";
     selectMarca.innerHTML = `<option value="" disabled selected>selecione</option>`;
     for (let index = 0; index < marcas.length; index++) {
         selectMarca.innerHTML += ` 
@@ -17,13 +19,15 @@ buscarMarcaPorTipo.onchange = async ()  => {
     $('#marca').selectpicker('refresh');
 }
 
-const buscarModeloPorMarca= document.getElementById("marca");
-buscarModeloPorMarca.onchange = async ()  => {
+const buscarModeloPorMarca = document.getElementById("marca");
+buscarModeloPorMarca.onchange = async () => {
     let tipo = buscarMarcaPorTipo.value;
     let marca = buscarModeloPorMarca.value;
     let modelos = await listarModelos(tipo, marca);
     let selectModelo = document.getElementById("modelo");
     selectModelo.disabled = false;
+    let avisoMarca = document.getElementById("avisoMarca");
+    avisoMarca.textContent = " ";
     selectModelo.innerHTML = `<option value="" disabled selected>selecione</option>`;
     for (let index = 0; index < modelos.modelos.length; index++) {
         selectModelo.innerHTML += ` 
@@ -33,14 +37,16 @@ buscarModeloPorMarca.onchange = async ()  => {
     $('#modelo').selectpicker('refresh');
 }
 
-const buscarAnoPorModelo= document.getElementById("modelo");
-buscarAnoPorModelo.onchange = async ()  => {
+const buscarAnoPorModelo = document.getElementById("modelo");
+buscarAnoPorModelo.onchange = async () => {
     let tipo = buscarMarcaPorTipo.value;
     let marca = buscarModeloPorMarca.value;
     let modelo = buscarAnoPorModelo.value;
     let anos = await listarAnos(tipo, marca, modelo);
     let selectAno = document.getElementById("ano");
     selectAno.disabled = false;
+    let avisoModelo = document.getElementById("avisoModelo");
+    avisoModelo.textContent = " ";
     selectAno.innerHTML = `<option value="" disabled selected>selecione</option>`;
     for (let index = 0; index < anos.length; index++) {
         selectAno.innerHTML += ` 
@@ -51,6 +57,13 @@ buscarAnoPorModelo.onchange = async ()  => {
 }
 
 const buscarCarroPorAno = document.getElementById("ano");
+
+buscarCarroPorAno.onchange = async () => {
+    let avisoAno = document.getElementById("avisoAno");
+    avisoAno.textContent = " ";
+}
+
+
 form.addEventListener('submit', async event => {
     event.preventDefault();
     let tipo = buscarMarcaPorTipo.value;
@@ -58,28 +71,50 @@ form.addEventListener('submit', async event => {
     let modelo = buscarAnoPorModelo.value;
     let ano = buscarCarroPorAno.value;
     let avisoAno = document.getElementById("avisoAno");
+    let avisoMarca = document.getElementById("avisoMarca");
+    let avisoModelo = document.getElementById("avisoModelo");
+    let avisoTipo = document.getElementById("avisoTipo");
+    avisoTipo.textContent = " ";
+    avisoMarca.textContent = " ";
+    avisoModelo.textContent = " ";
     avisoAno.textContent = " ";
-    if (ano === ""){
-        avisoAno.textContent = "Digite o ano do veículo";
+    if (tipo === "") {
+        avisoTipo.textContent = "Selecione o tipo do veículo";
+    }
+    if (marca === "") {
+        avisoMarca.textContent = "Selecione a marca do veículo";
+    }
+    if (modelo === "") {
+        avisoModelo.textContent = "Selecione o modelo do veículo";
+    }
+    if (ano === "") {
+        avisoAno.textContent = "Selecione o ano do veículo";
     } else {
         let dadosConsulta = await consultarCarro(tipo, marca, modelo, ano);
-        console.log(dadosConsulta);
+        form.style.display ="none";
         let divDadosCarro = document.getElementById("dadosCarro");
         avisoAno.textContent = " ";
         divDadosCarro.innerHTML = `
             <div id = "card">
-                <h1>Marca: ${dadosConsulta.Marca}</h1>
-                <h1>Modelo: ${dadosConsulta.Modelo}</h1>
-                <h1>Ano: ${ano}</h1>
-                <h1>Valor: ${dadosConsulta.Valor}</h1>
-                <h4>Mês de referência: ${dadosConsulta.MesReferencia}</h4>
+                <h1><b>Marca:</b> ${dadosConsulta.Marca}</h1>
+                <h1><b>Modelo:</b> ${dadosConsulta.Modelo}</h1>
+                <h1><b>Ano:</b> ${ano}</h1>
+                <h1><b>Valor:</b> ${dadosConsulta.Valor}</h1>
+                <h4><b>Mês de referência:</b> ${dadosConsulta.MesReferencia}</h4>
+                <button id="btnOutraConsulta">Fazer outra consulta</button>
             </div>
         `
+        let btnPesquisa = document.getElementById("btnOutraConsulta");
+        btnPesquisa.onclick = () => {
+            form.style.display ="flex";
+            divDadosCarro.textContent = "";
+        }
+        
         limparCampos();
     }
 })
 
-function limparCampos(){
+function limparCampos() {
     buscarMarcaPorTipo.value = "";
     buscarModeloPorMarca.value = "";
     buscarAnoPorModelo.value = "";
@@ -90,7 +125,7 @@ function limparCampos(){
     selectModelo.disabled = true;
     let selectAno = document.getElementById("ano");
     selectAno.disabled = true;
-    
+
     $('#marca option').remove();
     $('#modelo option').remove();
     $('#ano option').remove();
